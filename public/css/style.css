@@ -1,0 +1,109 @@
+/* =========================================================================
+   QRode design tokens.
+   Source: colors sampled from the UI mockups in the capstone manuscript
+   (Storyboard / UI Mockups). Pixel-sampled, not typed hex values from the
+   document. Entries marked (derived) or (extension) are NOT in the mockups.
+   Change a color HERE and every badge, alert, button and capture box follows.
+   ========================================================================= */
+:root {
+  --qr-ink:          #10131f;  /* sidebar / dark navy, Blacklist button */
+  --qr-ink-2:        #1b2036;  /* active sidebar item */
+  --qr-bg:           #f4f5fa;  /* page background */
+  --qr-surface:      #ffffff;  /* cards */
+  --qr-line:         #e4e7f2;  /* card borders (derived) */
+  --qr-muted:        #6b7185;  /* secondary text (derived) */
+
+  --qr-accent:       #3d5afe;  /* primary accent, "Pending Review" */
+  --qr-accent-hover: #2f49d6;  /* (derived) */
+  --qr-accent-tint:  #ebeeff;
+  --qr-accent-line:  #c8d0ff;
+
+  --qr-success:      #16a34a;  /* Approve button, "Valid Entry" */
+  --qr-success-hover:#12843b;  /* (derived) */
+  --qr-success-tint: #eaf7ee;
+  --qr-success-line: #d5efde;
+
+  --qr-danger:       #dc2626;  /* Deny / Blacklist actions */
+  --qr-danger-hover: #b91c1c;  /* (derived) */
+  --qr-danger-tint:  #fbeaea;
+  --qr-danger-line:  #f3c6c6;
+
+  /* "flagged" has no color in the mockups -> amber (extension) */
+  --qr-flag:         #b45309;
+  --qr-flag-tint:    #fff4dc;
+  --qr-flag-line:    #f6d9a0;
+}
+
+body { background: var(--qr-bg); color: var(--qr-ink); }
+.card { border-color: var(--qr-line); border-radius: 14px; background: var(--qr-surface); }
+.text-muted { color: var(--qr-muted) !important; }
+.text-primary { color: var(--qr-accent) !important; }
+.qr-text-flagged { color: var(--qr-flag) !important; }
+.qr-text-success { color: var(--qr-success) !important; }
+
+/* ---- navigation / hero ---- */
+.navbar-qrode { background: var(--qr-ink); }
+.navbar-qrode .navbar-brand, .navbar-qrode .nav-link { color: #fff !important; }
+.navbar-qrode .nav-link:hover { color: var(--qr-accent-line) !important; }
+.hero { background: var(--qr-ink); color: #fff; }
+.card-portal { transition: transform .15s ease; }
+.card-portal:hover { transform: translateY(-4px); }
+
+/* ---- buttons ---- */
+.btn-qrode { background: var(--qr-accent); color: #fff; border: 1px solid var(--qr-accent); }
+.btn-qrode:hover, .btn-qrode:focus { background: var(--qr-accent-hover); border-color: var(--qr-accent-hover); color: #fff; }
+
+.btn-approve, .btn-success { background: var(--qr-success); border: 1px solid var(--qr-success); color: #fff; }
+.btn-approve:hover, .btn-success:hover { background: var(--qr-success-hover); border-color: var(--qr-success-hover); color: #fff; }
+
+.btn-deny, .btn-outline-danger { background: #fff; border: 1px solid var(--qr-danger); color: var(--qr-danger); }
+.btn-deny:hover, .btn-outline-danger:hover { background: var(--qr-danger-tint); border-color: var(--qr-danger); color: var(--qr-danger); }
+
+.btn-blacklist { background: var(--qr-ink); border: 1px solid var(--qr-ink); color: #fff; }
+.btn-blacklist:hover { background: var(--qr-ink-2); border-color: var(--qr-ink-2); color: #fff; }
+
+.btn-outline-primary { border-color: var(--qr-accent); color: var(--qr-accent); }
+.btn-outline-primary:hover { background: var(--qr-accent); border-color: var(--qr-accent); color: #fff; }
+.btn-outline-success { border-color: var(--qr-success); color: var(--qr-success); }
+.btn-outline-success:hover { background: var(--qr-success); border-color: var(--qr-success); color: #fff; }
+.btn-outline-secondary { border-color: var(--qr-line); color: var(--qr-ink); background: #fff; }
+.btn-outline-secondary:hover, .btn-outline-secondary.active { background: var(--qr-accent-tint); border-color: var(--qr-accent-line); color: var(--qr-accent); }
+
+/* ---- status badges (pill + tint + border, like the mockups) ---- */
+.badge { border: 1px solid transparent; border-radius: 999px; font-weight: 600; letter-spacing: .02em; }
+.badge-pending, .badge-in      { background: var(--qr-accent-tint);  color: var(--qr-accent);  border-color: var(--qr-accent-line); }
+.badge-approved, .badge-valid  { background: var(--qr-success-tint); color: var(--qr-success); border-color: var(--qr-success-line); }
+.badge-flagged                 { background: var(--qr-flag-tint);    color: var(--qr-flag);    border-color: var(--qr-flag-line); }
+.badge-denied                  { background: var(--qr-danger-tint);  color: var(--qr-danger);  border-color: var(--qr-danger-line); }
+.badge-blacklisted             { background: var(--qr-ink);          color: #fff;              border-color: var(--qr-ink); }
+.badge-out, .badge-neutral     { background: var(--qr-bg);           color: var(--qr-muted);   border-color: var(--qr-line); }
+
+/* ---- alert banners ---- */
+.alert { border-radius: 12px; }
+.alert-danger  { background: var(--qr-danger-tint);  border-color: var(--qr-danger-line);  color: var(--qr-danger); }
+.alert-success { background: var(--qr-success-tint); border-color: var(--qr-success-line); color: var(--qr-success); }
+.alert-warning, .alert-flagged { background: var(--qr-flag-tint); border-color: var(--qr-flag-line); color: var(--qr-flag); }
+.alert-info    { background: var(--qr-accent-tint);  border-color: var(--qr-accent-line);  color: var(--qr-accent); }
+
+/* Guard Terminal scan result: big, solid, readable at a gate */
+.qr-alert { border-radius: 12px; padding: 1rem; text-align: left; color: #fff; }
+.alert-granted  { background: var(--qr-success); }
+.alert-denied   { background: var(--qr-danger); }
+.alert-info-qr  { background: var(--qr-accent); }
+
+/* ---- camera capture container ---- */
+.capture-box { background: var(--qr-bg); border: 1px dashed var(--qr-accent-line); border-radius: 14px; padding: 1rem; }
+.capture-box .capture-status { color: var(--qr-accent); min-height: 1.2em; }
+.capture-box video, .capture-box canvas { border-color: var(--qr-accent-line) !important; background: var(--qr-ink); }
+
+/* ---- scanner ---- */
+#reader { width: 100%; max-width: 420px; margin: 0 auto; }
+.scan-flash-valid { animation: flashGreen .6s ease; }
+.scan-flash-alert { animation: flashRed .6s ease; }
+@keyframes flashGreen { 0% { background: var(--qr-success-tint); } 100% { background: transparent; } }
+@keyframes flashRed { 0%,50% { background: var(--qr-danger-tint); } 100% { background: transparent; } }
+
+/* ---- wizard steps ---- */
+.step-dot { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--qr-line); color: var(--qr-muted); font-size: .85rem; }
+.step-dot.active { background: var(--qr-accent); color: #fff; }
+.step-dot.done { background: var(--qr-success); color: #fff; }
